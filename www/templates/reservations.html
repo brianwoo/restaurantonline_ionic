@@ -1,0 +1,63 @@
+<ion-view view-title="Reservations" ng-controller="ReservationsController">
+  <ion-content>
+     <div class="list">
+         <div class="item item-text-wrap">
+            <h2><strong>Reservation @ {{restaurantName}}</strong></h2>
+         </div>    
+         <div class="item item-divider">
+            Date
+         </div>    
+         <div class="item">
+            
+            <button ng-disabled="isAllControlsDisabled" ng-model="reservation.date" class="button button-positive button-block" style="margin: 0;" ng-click="openDatePicker()">{{reservation.date}}
+            </button>
+            
+         </div> 
+         <div class="item item-divider">
+            Number of People
+         </div>    
+         <div class="item">
+            
+            <button hide-reset="true" ng-disabled="isAllControlsDisabled" ng-change="fetchAvailableTimeslots()" class="button button-positive button-block" modal-select="" ng-model="reservation.nPeople" options="nPeopleInDropdown" modal-title="Select a number">
+              {{reservation.nPeople || "Please Select..."}}
+              <div class="option">
+                {{option}}
+              </div>
+            </button>     
+            
+         </div>    
+         <div class="item item-divider">
+            Time
+         </div>    
+         <div class="item">
+            
+            <button hide-reset="true" ng-disabled="isTimeslotDropdownDisabled" class="button button-positive button-block" modal-select="" ng-model="reservation.timeslotObj" options="availableTimeslots">
+              {{reservation.timeslotObj.from || "Please Select..."}}
+              <div class="option">
+                <h2 class="title">{{option.from}}</h2>
+              </div>
+            </button>       
+            
+         </div>      
+         <div class="item item-divider">
+            Special Request
+         </div>    
+         <div class="item">
+            <label class="item item-input" style="max-width:100%">
+               <textarea ng-disabled="isAllControlsDisabled" ng-model="reservation.specialReq" id="specialReqTextBox" rows="4" col="12"></textarea>
+            </label>
+         </div>     
+         <div class="item">
+            <button ng-disabled="isSubmitButtonDisabled()" class="button button-positive button-block" ng-click="submitReservation()">Submit</button>
+            <!-- button ng-click="showToast()">Toast show long center</button -->
+         </div>          
+     </div>
+   
+     <!--
+    <h1>Reservations {{restaurant}} {{restaurantName}}</h1>
+     
+     <button class="button button-positive button-block" style="margin: 0;" ng-click="openDatePicker()">Open Date Picker Popup
+      </button>
+      -->
+  </ion-content>
+</ion-view>

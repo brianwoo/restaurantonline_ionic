@@ -1,0 +1,101 @@
+<ion-modal-view ng-controller="UsersController">
+   <ion-header-bar class="bar-positive">
+     
+      <button ng-click="closeLogin()" class="button back-button buttons button-clear header-item">    
+         <i class="icon ion-android-arrow-back"></i> 
+         <span class="back-text"></span>
+      </button>
+      
+   </ion-header-bar>
+   
+   
+   <ion-tabs class="tabs-positive">
+      <ion-tab title="Login">
+                  
+         <ion-header-bar>
+            <h1 class="title">Login</h1>
+            <!--
+            <div class="buttons">
+               <button class="button button-light" ng-click="closeLogin()">Close</button>
+            </div>
+            -->
+         </ion-header-bar>
+         
+         <ion-content>
+            <form>
+               <div class="list">
+                  
+                  <label class="item item-input">
+                     <span class="input-label">Username</span>
+                     <input type="text" ng-model="loginData.username">
+                  </label>
+                  <label class="item item-input">
+                     <span class="input-label">Password</span>
+                     <input type="password" ng-model="loginData.password">
+                  </label>
+
+                  <label class="item">
+                     <button ng-click="login()" class="button button-block button-positive" type="submit">Sign in</button>
+                  </label>
+               </div>
+            </form>
+         </ion-content>
+
+      </ion-tab>
+      <ion-tab title="Register">
+         
+         <ion-header-bar>
+            <h1 class="title">Register</h1>
+            <!--
+            <div class="buttons">
+               <button class="button button-light" ng-click="closeLogin()">Close</button>
+            </div>
+            -->
+         </ion-header-bar>
+         
+         
+         <!-- -->
+         <ion-content>
+            
+            <form>
+               
+               <div class="list">
+                  
+                  <label class="item item-input">
+                     <span class="input-label">Username</span>
+                     <input type="text" ng-model="registration.username">
+                  </label>
+                  <label class="item item-input">
+                     <span class="input-label">Password</span>
+                     <input type="password" ng-model="registration.password">
+                  </label>
+                  <label class="item item-input">
+                     <span class="input-label">First Name</span>
+                     <input type="text" ng-model="registration.firstname">
+                  </label>
+                  <label class="item item-input">
+                     <span class="input-label">Last Name</span>
+                     <input type="text" ng-model="registration.lastname">
+                  </label>                  
+
+                  <label class="item">
+                     <button ng-click="register()" class="button button-block button-positive" type="submit">Register</button>
+                  </label>
+               </div>
+
+            </form>
+
+         </ion-content>
+<!-- -->
+      </ion-tab>
+
+
+   </ion-tabs>
+
+
+
+
+
+
+
+</ion-modal-view>

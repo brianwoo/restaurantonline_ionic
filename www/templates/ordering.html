@@ -1,0 +1,38 @@
+<ion-view view-title="Ordering" ng-controller="OrderingController">
+   
+   <ion-nav-buttons side="right">
+      <button ng-click="openCartModal()" class="button button-icon button-clear ion-android-cart">
+      </button>
+   </ion-nav-buttons>
+   
+   
+   <ion-content>
+      <div class="list">
+         <div class="item item-text-wrap">
+            <h2><strong>Online Ordering @ {{restaurantName}}</strong></h2>
+         </div>
+         
+         
+         <div ng-repeat="(key, value) in menu | groupBy: 'foodCategory.categoryName'">
+
+            <div id="{{ key }}">
+               <div class="item item-divider">
+                  {{ key }}
+               </div>
+               <div class="item item-text-wrap item-icon-right" ng-repeat="menuitem in value">
+                  <div >
+                     <div>{{ menuitem.dishName }}</div>
+                     <div>{{menuitem.dishPriceCurrency | currency}}</div>
+                     <div><i ng-click="addToBasket(menuitem._id, menuitem.dishName, menuitem.dishPriceCurrency)" class="icon ion-plus-circled" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="item-text-wrap">
+                     <h4 id="orderDishDesc" class="col-xs-12">{{ menuitem.dishDesc }}</h4>
+                  </div>
+               </div>
+
+            </div>
+         </div>       
+      </div>
+      <!--h1>Ordering {{restaurant}} {{restaurantName}}</h1-->
+   </ion-content>
+</ion-view>

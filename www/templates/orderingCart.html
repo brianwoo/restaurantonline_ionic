@@ -1,0 +1,59 @@
+<ion-modal-view>
+   
+   <ion-header-bar class="bar-positive">
+     
+      <button ng-click="closeModal()" class="button back-button buttons button-clear header-item">    <i class="icon ion-android-arrow-back"></i> 
+         <span class="back-text"></span>
+      </button>
+            
+      <h1 class="title">Your Cart</h1>
+   </ion-header-bar>
+   
+   <ion-content>
+               
+      <div class="list">
+
+         <div class="item item-text-wrap">
+            <h2><strong>Online Ordering @ {{restaurantName}}</strong></h2>
+         </div>
+         <div ng-if="isBasketEmpty()" class="item item-text-wrap">
+            there are no items in your order
+         </div>
+         <div ng-if="!isBasketEmpty()" class="item item-divider">
+            Your Ordered Items
+         </div>
+         <div ng-if="!isBasketEmpty()" class="item item-text-wrap item-icon-left" ng-repeat="menuItem in itemsAdded | filter: {added: true}">
+               <div><i ng-click="removeFromBasket(menuItem.menuItem, menuItem.index)" class="icon ion-minus-circled" aria-hidden="true"></i></div>
+               <div>{{menuItem.dishName}}</div>
+               <div>{{menuItem.dishPrice | currency}}</div>               
+         </div>     
+         <div ng-if="!isBasketEmpty()" class="item item-divider">
+            Total
+         </div>
+         <div ng-if="!isBasketEmpty()" class="item item-text-wrap">
+            <p><strong>SUBTOTAL:</strong> {{ itemsAddedSubTotal | currency }}</p>
+            <p><strong>Tax (5%):</strong> {{ itemsAddedSubTotalTax | currency }}</p>
+            <p><strong>TOTAL:</strong> {{ itemsAddedGrandTotal | currency }}</p>
+            <br>
+            <p><strong>Pick-Up:</strong> {{ pickupTime }} mins</p>
+         </div>
+
+         <div ng-if="!isBasketEmpty()" class="item item-divider">
+            Additional Requests
+         </div>
+         <div ng-if="!isBasketEmpty()" class="item item-text-wrap">
+            <label class="item item-input" style="max-width:100%">
+               <textarea ng-readonly="isOrderDone" ng-disabled="isAllControlsDisabled" ng-model="order.specialReq" id="orderingNote" rows="4" col="12"></textarea>
+            </label>
+         </div>   
+         <div ng-if="!isBasketEmpty()" class="item">
+            <button ng-disabled="isOrderDone" class="button button-positive button-block" ng-click="orderNow()">Order Now</button>
+         </div>    
+
+      
+      </div>
+      
+   </ion-content>
+   
+   
+</ion-modal-view>

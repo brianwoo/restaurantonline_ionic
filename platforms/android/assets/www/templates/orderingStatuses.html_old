@@ -1,0 +1,24 @@
+<ion-modal-view>
+   
+   <ion-header-bar class="bar-positive">
+     
+      <button ng-click="closeOrderStatusesModal()" class="button back-button buttons button-clear header-item">  
+         <i class="icon ion-android-arrow-back"></i> 
+         <span class="back-text"></span>
+      </button>
+            
+      <h1 class="title">Please Select</h1>
+   </ion-header-bar>
+   
+   <ion-content>
+       <!-- div>{{ orderIdSelected }}</div -->
+      <div class="list">
+         <div ng-click="setOrderStatus(orderIdSelected, eachStatus)" class="item" ng-repeat="eachStatus in orderStatuses">
+            {{ eachStatus }}
+         </div>
+      
+      </div>
+      
+   </ion-content>
+   
+</ion-modal-view>

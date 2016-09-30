@@ -1,0 +1,66 @@
+<ion-view ng-controller="RestaurantDetailsController">
+   <!--ion-nav-title>{{restaurantDetails.name}}</ion-nav-title-->
+   <ion-content>
+
+      <div class="list">
+         <div class="item item-text-wrap">
+            <h2><strong>{{restaurantDetails.name}}</strong></h2>
+            <p>{{restaurantDetails.description}}</p>
+         </div>
+         
+         
+         <div class="item item-divider">
+            Photos
+         </div>
+
+         <div class="item">
+
+            <ion-slide-box>
+               <ion-slide ng-repeat="image in restaurantDetails.photos">
+                  <img ng-src="{{baseURL}}{{image}}" style="max-width:300px;margin:auto;display:block">
+               </ion-slide>
+            </ion-slide-box>
+
+         </div>
+
+         <div class="item item-divider">
+            Restaurant Info
+         </div>
+         <div class="item">
+            <p><strong>Address:</strong> <a ng-href="geo:{{::restaurantDetails.lat}},{{::restaurantDetails.lon}}?q={{::restaurantDetails.lat}},{{::restaurantDetails.lon}}({{::sanitizedRestaurantName}})" 
+                          ng-click="$event.stopPropagation()"
+                          target="_blank">{{restaurantDetails.address}}</a></p>
+            <p><strong>Cuisine:</strong> {{restaurantDetails.cuisineDesc.join(" | ")}}</p>
+            <p><strong>Cost:</strong> ${{restaurantDetails.cost.low}} - ${{restaurantDetails.cost.high}}</p>
+            <p><strong>Payment Options:</strong> {{restaurantDetails.paymentOptions.join(" | ")}}</p>
+            <p><strong>Website:</strong> <a href="" ng-click="goToUrl(restaurantDetails.website)">{{restaurantDetails.website}}</a></p>
+            <p><strong>Phone:</strong> <a ng-href="tel: {{restaurantDetails.phone}}">{{restaurantDetails.phone}}</a></p>
+         </div>
+         <div class="item item-divider">
+            Business Hours
+         </div>
+         <div class="item">
+            <p><strong>Monday:</strong> {{restaurantDetails.businessHours.monday.open}} - {{restaurantDetails.businessHours.monday.close}}</p>
+            <p><strong>Tuesday:</strong> {{restaurantDetails.businessHours.tuesday.open}} - {{restaurantDetails.businessHours.tuesday.close}}</p>
+            <p><strong>Wednesday:</strong> {{restaurantDetails.businessHours.wednesday.open}} - {{restaurantDetails.businessHours.wednesday.close}}</p>
+            <p><strong>Thursday:</strong> {{restaurantDetails.businessHours.thursday.open}} - {{restaurantDetails.businessHours.thursday.close}}</p>
+            <p><strong>Friday:</strong> {{restaurantDetails.businessHours.friday.open}} - {{restaurantDetails.businessHours.friday.close}}</p>
+            <p><strong>Saturday:</strong> {{restaurantDetails.businessHours.saturday.open}} - {{restaurantDetails.businessHours.saturday.close}}</p>
+            <p><strong>Sunday:</strong> {{restaurantDetails.businessHours.sunday.open}} - {{restaurantDetails.businessHours.sunday.close}}</p>
+         </div>
+         
+         <div class="item item-divider">
+            Reservations or Ordering Online
+         </div>
+         <div class="item">
+            <!--p -->
+               <button class="button button-block button-positive" ng-click="goToReservations()">Make a Reservation Online</button>
+            <!--/p-->
+            <!--p-->
+               <button class="button button-block button-positive" ng-click="goToOrdering()">Online Ordering and Menu</button>
+            <!--/p-->
+         </div>
+      </div>
+
+   </ion-content>
+</ion-view>

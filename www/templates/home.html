@@ -1,0 +1,33 @@
+<ion-view view-title="RestaurantsOnline" ng-controller="HomeController">
+
+
+   <ion-content>
+
+      <div class="list card" ng-repeat="eachRest in restaurants">
+
+         <a ui-sref="app.restaurantDetails({rid: eachRest._id})" class="item item-thumbnail-right">
+            <img ng-src="{{baseURL + eachRest.mainPhoto }}">
+            <h2>{{eachRest.name}}</h2>
+            <h4>{{getCostIndicator(eachRest.cost.low, eachRest.cost.high)}}</h4>
+            <h4>{{eachRest.cuisineDesc.join(" | ")}}</h4>
+            <p></p>
+            <h5>{{eachRest.address}}</h5>            
+         </a>
+
+      </div>
+
+
+
+<!--
+      <ion-list>
+         <ion-item ng-repeat="eachRest in restaurants" href="#/app/playlists/{{playlist.id}}">
+            {{eachRest.name}}
+         </ion-item>
+      </ion-list>
+-->
+
+
+
+
+   </ion-content>
+</ion-view>

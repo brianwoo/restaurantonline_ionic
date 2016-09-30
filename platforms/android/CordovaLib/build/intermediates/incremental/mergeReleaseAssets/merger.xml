@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/bwoo/Downloads/openshift/restaurantsonline_ionic/restaurantsOnline/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/home/bwoo/Downloads/openshift/restaurantsonline_ionic/restaurantsOnline/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>

@@ -1,0 +1,56 @@
+<ion-view view-title="My Orders" ng-controller="MyOrdersController">
+   
+   
+   <ion-content>
+      <ion-refresher
+         pulling-text="Pull to refresh..."
+         on-refresh="doRefresh()">
+      </ion-refresher>
+      
+      <div class="list">
+         <div class="item item-text-wrap">
+            <h2><strong>Your Orders</strong></h2>
+         </div>
+         
+         
+         <div ng-repeat="eachOrder in myOrders">
+            <div class="item item-divider item-text-wrap">
+               <h2><a ng-href="geo:{{::eachOrder.restaurant.lat}},{{::eachOrder.restaurant.lon}}?q={{::eachOrder.restaurant.lat}},{{::eachOrder.restaurant.lon}}({{::getSanitizedRestaurantName(eachOrder.restaurant.name)}})" 
+                          ng-click="$event.stopPropagation()"
+                             target="_blank">{{eachOrder.restaurant.name}}</a></h2>
+               <p>{{ convertDateTime(eachOrder.createdAt) }}</p>
+            </div>
+            <div class="item item-text-wrap">
+               <div ng-if="isRestaurantMgr">
+                  <p><strong>Customer:</strong> {{ eachOrder.user.firstname }} {{ eachOrder.user.lastname }}</p>
+               </div>
+               
+               <p><strong>Ordered Items:</strong></p>
+               <div ng-repeat="eachItem in eachOrder.menuItems">
+                  <p id="orderedItemsList">{{ eachItem.numOfOrders }} {{ eachItem.menuItem.dishName }}</p>
+               </div>
+               <p><br></p>
+               
+               <p><strong>Special Request: </strong>{{ eachOrder.specialReq }}</p>
+
+               <p><strong>Status: </strong> {{ eachOrder.status }}
+                  <!--
+                  <a href ng-click="openOrderStatusesModal(eachOrder._id)">{{ eachOrder.status }} <i class="icon ion-edit"></i></a>
+                  -->
+                  <button id="statusChangeButton" ng-if="isRestaurantMgr" on-select="setOrderStatus(eachOrder._id, newValue)" hide-reset="true" class="button button-positive button-small icon ion-edit" modal-select="" ng-model="eachOrder.status" options="orderStatuses">
+                     <div class="option">
+                        <h2 class="title">{{option}}</h2>
+                     </div>
+                  </button>
+               </p>
+               
+            </div>
+         </div>
+
+      </div>
+
+      
+   </ion-content>
+   
+   
+</ion-view>

@@ -1,0 +1,103 @@
+/* Empty. Add your own CSS if you like */
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+#specialReqTextBox {
+   resize: none;
+}
+
+#orderingNote {
+   resize: none;
+}
+
+
+.sideMenu {
+   background-color: #0c60ee;
+   color: #fff;
+   border-color: #0c60ee;
+}
+
+#statusChangeButton {
+   padding: 0px 0px 0px 0px;
+   min-width: 22px;
+   min-height: 0px;
+   line-height: 0px;
+   border-width: 0px;
+   vertical-align: middle;
+}
+
+.item-complex .item-content, .item-radio .item-content {
+   background-color: #0c60ee;
+}
+
+
+#orderedItemsList {
+   text-indent: 10px;
+}
+
+/* -------------------------------------- */
+/* Ionic DatePicker Color Scheme Override */
+/* -------------------------------------- */
+/* Popup datepicker */
+.ionic_datepicker_popup .popup-body .selected_date_full {
+   background-color: #387ef5  !important;
+}
+
+.ionic_datepicker_popup .popup-body .button-clear {
+   color: #387ef5 !important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select, .ionic_datepicker_popup .popup-body .year_select {
+   border-bottom: #387ef5 !important;
+}
+
+
+.ionic_datepicker_popup .popup-body .month_select:after, .ionic_datepicker_popup .popup-body .year_select:after {
+   color: #387ef5 !important;
+}
+
+.ionic_datepicker_popup .selected_date {
+   background-color: #387ef5 !important;  
+}
+
+.ionic_datepicker_popup .popup-buttons button {
+   background-color: #387ef5 !important; 
+}
+
+.ionic_datepicker_popup .today {
+   border: 1px solid black  !important;
+}
+
+/* Modal datepicker */
+.ionic_datepicker_modal .header .title, .ionic_datepicker_modal .header .button, .ionic_datepicker_modal .footer .title, .ionic_datepicker_modal .footer .button {
+   color: #ffffff !important;
+}
+
+.ionic_datepicker_modal .header, .ionic_datepicker_modal .footer {
+   background-color: #387ef5 !important; 
+}
+
+
+.ionic_datepicker_modal .selected_date {
+  background-color: #387ef5 !important;
+}
+
+.ionic_datepicker_modal .month_select:after, .ionic_datepicker_modal .year_select:after {
+   color: #387ef5 !important;
+}
+
+.ionic_datepicker_modal .button-clear {
+   color: #387ef5 !important;
+}
+
+.ionic_datepicker_modal .today {
+    border: 1px solid #387ef5 !important;
+}
+
+.ionic_datepicker_modal .month_select, .ionic_datepicker_modal .year_select {
+    border-bottom: 1px solid #387ef5 !important;
+}
+
+/* -------------------------------------- */

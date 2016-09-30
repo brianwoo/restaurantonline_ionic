@@ -1,0 +1,54 @@
+<ion-view view-title="My Reservations" ng-controller="MyReservationsController">
+   
+   
+   <ion-content>
+      <ion-refresher
+         pulling-text="Pull to refresh..."
+         on-refresh="doRefresh()">
+      </ion-refresher>      
+      
+      <div class="list">
+         <div class="item item-text-wrap">
+            <h2><strong>Your Reservations</strong></h2>
+         </div>
+         
+         
+         <div ng-repeat="eachReso in myReservations">
+            <div class="item item-divider item-text-wrap">
+               <h2><a ng-href="geo:{{::eachReso.restaurant.lat}},{{::eachReso.restaurant.lon}}?q={{::eachReso.restaurant.lat}},{{::eachReso.restaurant.lon}}({{::getSanitizedRestaurantName(eachReso.restaurant.name)}})" 
+                          ng-click="$event.stopPropagation()"
+                             target="_blank">{{eachReso.restaurant.name}}</a></h2>
+               <p>{{ eachReso.prettyDate }} @ {{ eachReso.timeSlot.from }}</p>
+            </div>
+            <div class="item item-text-wrap">
+               <div ng-if="isRestaurantMgr">
+                  <p><strong>Customer:</strong> {{ eachReso.bookedBy.firstname }} {{ eachReso.bookedBy.lastname }}</p>
+               </div>
+               
+               <p><strong>Num of People: </strong>{{ eachReso.numPeople }}</p>
+               
+               <p><strong>Reserved Table: </strong>{{ eachReso.table.tableNum }}</p>
+               
+               <p><strong>Special Request: </strong>{{ eachReso.specialReq }}</p>
+               
+               <p><strong>Status: </strong> {{ eachReso.status }} 
+                  <!--
+                  <a href ng-click="openOrderStatusesModal(eachReso._id)">{{ eachReso.status }} <i class="icon ion-edit"></i></a>
+                  -->
+                  <button id="statusChangeButton" ng-if="isRestaurantMgr" on-select="setReservationStatus(eachReso._id, newValue)" hide-reset="true" class="button button-positive button-small icon ion-edit" modal-select="" ng-model="eachReso.status" options="reservationStatuses">
+                     <div class="option">
+                        <h2 class="title">{{option}}</h2>
+                     </div>
+                  </button>
+               </p>
+               
+            </div>
+         </div>
+
+      </div>
+
+      
+   </ion-content>
+   
+   
+</ion-view>
